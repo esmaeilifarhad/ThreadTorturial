@@ -29,3 +29,13 @@ matchBetweenThreads.CreateThreadAndCallThem();
 /*
  بن بست
  */
+object obj1=new object();
+object obj2 = new object();
+
+DeadLock deadLock = new DeadLock(obj1,obj2);
+
+Thread t1 = new Thread(new ThreadStart(deadLock.DeadLock1));
+Thread t2 = new Thread(new ThreadStart(deadLock.DeadLock2));
+
+t1.Start();
+t2.Start();
